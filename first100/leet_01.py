@@ -21,7 +21,6 @@ class Solution2:
             complement = target - nums[i]
             if complement in dic.keys() and dic[complement] != i:
                 return [i, dic[complement]]
-        return [] # 不存在的情况
 
 class Solution3:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
