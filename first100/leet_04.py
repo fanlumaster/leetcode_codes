@@ -15,8 +15,8 @@ class Solution:
                 return nums1[i + k - 1]
             if k == 1:
                 return min(nums1[i], nums2[j])
-            mid_val1 = nums1[i + k // 2 - 1] if i + k // 2 - 1 < len(nums1) else float('inf')
-            mid_val2 = nums2[j + k // 2 - 1] if j + k // 2 - 1 < len(nums2) else float('inf')
+            mid_val1 = nums1[i - 1 + k // 2] if i - 1 + k // 2 < len(nums1) else float('inf')
+            mid_val2 = nums2[j - 1 + k // 2] if j - 1 + k // 2 < len(nums2) else float('inf')
             if mid_val1 < mid_val2:
                 return find_kth(nums1, i + k // 2, nums2, j, k - k // 2)
             else:
@@ -30,7 +30,8 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
-    nums1 = [1, 3, 2]
+    nums1 = [1, 2, 3] # 注意，这里的输入数组都是正序的
     nums2 = [2]
     ans = solution.findMedianSortedArrays(nums1, nums2)
     print(ans)
+
